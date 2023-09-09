@@ -9,6 +9,7 @@ import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
 
 dotenv.config();
+const cors = require('cors')
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -21,6 +22,7 @@ mongoose
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
